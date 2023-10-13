@@ -1,39 +1,30 @@
 package dev.pedrosrc.todolist.user;
 
+import java.time.LocalDateTime;
+import java.util.UUID;
+
+import org.hibernate.annotations.CreationTimestamp;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import lombok.Data;
+
+@Data
+@Entity(name = "tb_users")
 public class UserModel {
     
+    @Id
+    @GeneratedValue(generator = "UUID")
+    private UUID id;
+
+    @Column(unique = true)
     private String name;
     private String email;
     private String password;
 
-    // Get and Return parameter
-
-    public void setName(String name) {
-        this.name = name;
-    }
-    
-    public String getName(){
-        return name;
-    }
-
-    // Get and Return parameter
-    
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    // Get and Return parameter
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getPassword() {
-        return password;
-    }
+    @CreationTimestamp
+    private LocalDateTime createdAt;
 
 }
