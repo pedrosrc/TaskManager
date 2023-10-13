@@ -18,6 +18,6 @@ public class UserController {
     
     @PostMapping("/register")
     public void create(@RequestBody UserModel userModel){
-        System.out.println(userModel.name);
+        System.out.println(userModel.getName());
     }
 }
